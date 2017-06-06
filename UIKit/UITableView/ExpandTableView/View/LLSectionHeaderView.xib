@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="m7W-RI-05v" customClass="LLSectionHeaderView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbj-88-VY1" userLabel="Content View">
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Triangle_Right" translatesAutoresizingMaskIntoConstraints="NO" id="zXW-kF-KO0">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="12" id="Bcm-9k-hsv"/>
+                                <constraint firstAttribute="width" constant="12" id="fKF-ph-0Tz"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bJ-b8-qKN">
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="3bJ-b8-qKN" firstAttribute="centerY" secondItem="lbj-88-VY1" secondAttribute="centerY" id="K2G-y8-hOj"/>
+                        <constraint firstAttribute="trailing" secondItem="3bJ-b8-qKN" secondAttribute="trailing" constant="10" id="dLa-yI-GTa"/>
+                        <constraint firstItem="zXW-kF-KO0" firstAttribute="leading" secondItem="lbj-88-VY1" secondAttribute="leading" constant="10" id="fHK-lZ-eZD"/>
+                        <constraint firstItem="zXW-kF-KO0" firstAttribute="centerY" secondItem="lbj-88-VY1" secondAttribute="centerY" id="l78-Vh-fxn"/>
+                        <constraint firstItem="3bJ-b8-qKN" firstAttribute="leading" secondItem="zXW-kF-KO0" secondAttribute="trailing" constant="10" id="lMk-UO-frB"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="lbj-88-VY1" secondAttribute="bottom" id="VxN-4R-VVB"/>
+                <constraint firstItem="lbj-88-VY1" firstAttribute="top" secondItem="m7W-RI-05v" secondAttribute="top" id="jzX-6V-ubl"/>
+                <constraint firstItem="lbj-88-VY1" firstAttribute="leading" secondItem="m7W-RI-05v" secondAttribute="leading" id="mCz-ca-4yI"/>
+                <constraint firstAttribute="trailing" secondItem="lbj-88-VY1" secondAttribute="trailing" id="oGW-kh-8E1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="sectionTitleLabel" destination="3bJ-b8-qKN" id="SXV-Bo-RQv"/>
+                <outlet property="triangleImageView" destination="zXW-kF-KO0" id="t4P-p0-e5F"/>
+            </connections>
+            <point key="canvasLocation" x="23" y="-566"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Triangle_Right" width="53" height="61"/>
+    </resources>
+</document>
