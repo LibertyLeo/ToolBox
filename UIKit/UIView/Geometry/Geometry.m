@@ -1,7 +1,8 @@
 //
-//  UIView+Geometry.m
+//  Geometry.m
+//  EnvironmentalMonitoring_Laboratory
 //
-//  Created by Leo_Lei on 4/14/17.
+//  Created by Leo_Lei on 6/7/17.
 //  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
@@ -146,7 +147,7 @@
         newFrame.size.width *= scale;
         newFrame.size.height *= scale;
     }
-
+    
     self.frame = newFrame;
 }
 
