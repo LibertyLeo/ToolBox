@@ -1,7 +1,7 @@
 //
-//  UIView+Geometry.h
+//  Geometry.h
 //
-//  Created by Leo_Lei on 4/14/17.
+//  Created by Leo_Lei on 6/7/17.
 //  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
@@ -55,7 +55,7 @@
 
 /**
  根据倍数设定进行视图的方法或缩小
-
+ 
  @param multiple 倍数
  */
 - (void)scaleBy:(CGFloat)multiple;
@@ -63,7 +63,7 @@
 /**
  根据尺寸进行视图的最佳收缩(等宽高比)
 
- @param size 尺寸
+ @param aSize 尺寸
  */
 - (void)fitInSize:(CGSize)aSize;
 
