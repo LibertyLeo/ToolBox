@@ -1,13 +1,13 @@
 //
-//  UIImage+PureColorImage.m
+//  PureColor.m
 //
-//  Created by Leo_Lei on 11/15/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
-#import "UIImage+PureColorImage.h"
+#import "PureColor.h"
 
-@implementation UIImage (PureColorImage)
+@implementation UIImage (PureColor)
 
 + (UIImage *)getPureColorImage:(UIColor *)color {
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);

@@ -1,13 +1,13 @@
 //
-//  UIWindow+AlertWindow.m
+//  AvailableWindow.m
 //
-//  Created by Leo_Lei on 12/23/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
-#import "UIWindow+AlertWindow.h"
+#import "AvailableWindow.h"
 
-@implementation UIWindow (AlertWindow)
+@implementation UIWindow (AvailableWindow)
 
 + (void)notifyCurrentWindowIsAvailable:(UIWindowLevel)level withBlock:(void (^)())block {
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;

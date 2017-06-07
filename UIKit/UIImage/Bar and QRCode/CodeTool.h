@@ -1,13 +1,13 @@
 //
-//  UIImage+BarCode_And_QRCode.h
+//  CodeTool.h
 //
-//  Created by Leo_Lei on 6/21/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIImage (BarCode_And_QRCode)
+@interface UIImage (CodeTool)
 
 /**
  根据字符串生成对应的条形码图像

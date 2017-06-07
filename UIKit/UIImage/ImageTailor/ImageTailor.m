@@ -1,13 +1,13 @@
 //
-//  UIImage+RoundedImage.m
+//  ImageTailor.m
 //
-//  Created by Leo_Lei on 8/9/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
-#import "UIImage+RoundedImage.h"
+#import "ImageTailor.h"
 
-@implementation UIImage (RoundedImage)
+@implementation UIImage (Rounded)
 
 - (UIImage *)trimIntoRoundedImage {
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);

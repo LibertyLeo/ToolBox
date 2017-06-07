@@ -1,8 +1,8 @@
 //
-//  NSData+FilterCharacter.h
+//  FilterCharacter.h
 //
-//  Created by Leo_Lei on 2016/12/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

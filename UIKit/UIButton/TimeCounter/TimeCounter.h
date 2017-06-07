@@ -1,8 +1,8 @@
 //
-//  UIButton+TimeCounter.h
+//  TimeCounter.h
 //
-//  Created by Leo_Lei on 11/28/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

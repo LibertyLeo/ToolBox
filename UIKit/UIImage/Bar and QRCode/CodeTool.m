@@ -1,13 +1,13 @@
 //
-//  UIImage+BarCode_And_QRCode.m
+//  CodeTool.m
 //
-//  Created by Leo_Lei on 6/21/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
-#import "UIImage+BarCode_And_QRCode.h"
+#import "CodeTool.h"
 
-@implementation UIImage (BarCode_And_QRCode)
+@implementation UIImage (CodeTool)
 
 + (UIImage *)generateBarCodeImage:(NSString *)codeString imageWidth:(CGFloat)width imageHeight:(CGFloat)height {
     //  将字符串进行无损转换

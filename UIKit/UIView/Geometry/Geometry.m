@@ -5,7 +5,7 @@
 //  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
-#import "UIView+Geometry.h"
+#import "Geometry.h"
 
 @implementation UIView (Geometry)
 

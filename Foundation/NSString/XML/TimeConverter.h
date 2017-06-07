@@ -1,14 +1,14 @@
 //
-//  NSString+Time.h
+//  TimeConverter.h
 //
-//  Created by Leo_Lei on 11/23/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 /** 封装有关于时间的日期字符串相互转换*/
-@interface NSString (Time)
+@interface NSString (TimeConverter)
 
 /**
  显示指定日期的字符串

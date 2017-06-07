@@ -1,13 +1,13 @@
 //
-//  UIViewController+OwnerViewController.m
+//  OwnerViewController.m
 //
-//  Created by Leo_Lei on 12/23/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
-#import "UIViewController+OwnerViewController.h"
+#import "OwnerViewController.h"
 
-@implementation UIViewController (OwnerViewController)
+@implementation UIViewController (Owner)
 
 + (UIViewController *)currentViewController {
     UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;

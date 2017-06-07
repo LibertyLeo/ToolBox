@@ -1,15 +1,15 @@
 //
-//  UIViewController+UIAlertController.h
+//  UIViewControllerAlert.h
 //
-//  Created by Leo_Lei on 8/24/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIViewController (UIAlertController)
+@interface UIViewController (Alert)
 
 /**
  一个包含取消按钮的简单提醒框

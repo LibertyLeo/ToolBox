@@ -1,13 +1,13 @@
 //
-//  NSString+Time.m
+//  TimeConverter.m
 //
-//  Created by Leo_Lei on 11/23/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Created by Leo_Lei on 6/7/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
-#import "NSString+Time.h"
+#import "TimeConverter.h"
 
-@implementation NSString (Time)
+@implementation NSString (TimeConverter)
 
 + (NSString *)translateDate:(NSDate *)date inFormat:(NSDateFormatter *)format {
     return [format stringFromDate:date];
