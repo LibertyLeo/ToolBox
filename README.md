@@ -9,6 +9,8 @@
 - [建立JSON模型](/Foundation/LLModel): 用于网络请求数据返回后的JSON解析。
 - NSObject:
     - [渐变色背景绘制](/Foundation/NSObject/GradientColor): 利用图层绘制原理进行渐变色图片的制作。
+    - [柔和色彩集](/Foundation/NSObject/FlatColors): 个人测试所得到的一些色彩的柔和版。
+    - [简易画板](/Foundation/NSObject/Painting): 简易画板对象，通过drawRect以及触摸事件，完成触摸路径的绘制。
 - NSData:
 	- [转义字符识别](/Foundation/NSData/FilterCharacter): 用于将网络请求返回数据中包含的转义字符进行识别。
 - NSString:
