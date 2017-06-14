@@ -5,13 +5,19 @@
 - Constant: 常量文件。
 - Macro: 常用宏。
 
+## Fun
+- [建立JSON模型](/Fun/JsonModel): 用于网络请求数据返回后的JSON解析。
+- 色彩相关:
+    - [渐变色背景绘制](/Fun/Color/GradientColor): 利用图层绘制原理进行渐变色图片的制作。
+    - [柔和色彩集](/Fun/Color/FlatColors): 个人测试所得到的一些色彩的柔和版。
+- [简易画板](/Fun/Painting): 简易画板对象，通过drawRect以及触摸事件，完成触摸路径的绘制。
+- [加密算法](/Fun/Encryption): 暂时只有MD5加密算法。
+- 网络相关:
+    - [文件下载](/Fun/Network/FileDownload): 用于下载文件的简单封装，文件下载完毕会转移到沙盒目录下进行缓存。
+    - [网络助手](/Fun/Network/LLNetManager): 采用AFNetwoking3.0为核心，进行对一般GET、POST请求进行二次封装。
+    - [网络检测](/Fun/Network/LLNetworkReachability): 通过获取状态栏中网络状态视图来进行网络的判断，如果状态栏被隐藏或不可见，该方法不可用。
+
 ## Foundation
-- [建立JSON模型](/Foundation/LLModel): 用于网络请求数据返回后的JSON解析。
-- NSObject:
-    - [渐变色背景绘制](/Foundation/NSObject/GradientColor): 利用图层绘制原理进行渐变色图片的制作。
-    - [柔和色彩集](/Foundation/NSObject/FlatColors): 个人测试所得到的一些色彩的柔和版。
-    - [简易画板](/Foundation/NSObject/Painting): 简易画板对象，通过drawRect以及触摸事件，完成触摸路径的绘制。
-    - [加密算法](/Foundation/NSObject/Encryption): 暂时只有MD5加密算法。
 - NSData:
 	- [转义字符识别](/Foundation/NSData/FilterCharacter): 用于将网络请求返回数据中包含的转义字符进行识别。
 - NSString:
@@ -22,11 +28,6 @@
 	- [打印中文元素](/Foundation/NSArray/ChineseDescription): 用于将数组中unicode数据进行中文转换。
 - NSDictionary:
 	- [打印中文元素](/Foundation/NSDictionary/ChineseDescription): 用于将字典中unicode数据进行中文转换。
-
-## Network
-- [文件下载](/Network/FileDownload): 用于下载文件的简单封装，文件下载完毕会转移到沙盒目录下进行缓存。
-- [网络助手](/Network/LLNetManager): 采用AFNetwoking3.0为核心，进行对一般GET、POST请求进行二次封装。
-- [网络检测](/Network/LLNetworkReachability): 通过获取状态栏中网络状态视图来进行网络的判断，如果状态栏被隐藏或不可见，该方法不可用。
 
 ## UIKit
 - UIButton:
