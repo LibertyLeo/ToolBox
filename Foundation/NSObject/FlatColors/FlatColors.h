@@ -24,6 +24,9 @@
 /** 藏青色*/
 @property (class, nonatomic, readonly) UIColor *flatNavyColor;
 
+/** 柔和蓝*/
+@property (class, nonatomic, readonly) UIColor *flatBrightBlueColor;
+
 /** 神秘蓝*/
 @property (class, nonatomic, readonly) UIColor *flatCuriousBlueColor;
 

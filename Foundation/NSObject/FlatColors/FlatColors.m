@@ -36,6 +36,10 @@
     return [self colorWithR:52 G:152 B:219];
 }
 
++ (UIColor *)flatBrightBlueColor {
+    return [self colorWithR:41 G:182 B:255];
+}
+
 + (UIColor *)flatCuriousBlueColor {
     return [self colorWithR:41 G:128 B:185];
 }
