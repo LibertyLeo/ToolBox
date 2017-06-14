@@ -19,7 +19,7 @@
     return sharedInstance;
 }
 
-- (void)GET:(NSString *)URLString parameters:(id)parameters
+- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters
     success:(successBlock)success failure:(failureBlock)failure {
     return [self GET:URLString
           parameters:parameters
@@ -28,7 +28,7 @@
              failure:failure];
 }
 
-- (void)GET:(NSString *)URLString parameters:(id)parameters timeoutInterval:(NSTimeInterval)timeout
+- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
     success:(successBlock)success failure:(failureBlock)failure {
     return [self GET:URLString
           parameters:parameters
@@ -38,7 +38,7 @@
              failure:failure];
 }
 
-- (void)GET:(NSString *)URLString parameters:(id)parameters timeoutInterval:(NSTimeInterval)timeout
+- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
    progress:(downloadBlock)downloadProgress success:(successBlock)success failure:(failureBlock)failure {
     //  针对超时进行一个安全设置
     if (timeout <= 0 || timeout >= 60) {
@@ -64,7 +64,7 @@
          } : nil];
 }
 
-- (void)POST:(NSString *)URLString parameters:(id)parameters
+- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters
      success:(successBlock)success failure:(failureBlock)failure {
     return [self POST:URLString
            parameters:parameters
@@ -73,7 +73,7 @@
               failure:failure];
 }
 
-- (void)POST:(NSString *)URLString parameters:(id)parameters timeoutInterval:(NSTimeInterval)timeout
+- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
      success:(successBlock)success failure:(failureBlock)failure {
     return [self POST:URLString
            parameters:parameters
@@ -83,7 +83,7 @@
               failure:failure];
 }
 
-- (void)POST:(NSString *)URLString parameters:(id)parameters timeoutInterval:(NSTimeInterval)timeout
+- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
     progress:(uploadBlock)uploadProgress success:(successBlock)success failure:(failureBlock)failure {
     if (timeout <= 0 || timeout >= 60) {
         timeout = 60.0f;
@@ -108,7 +108,7 @@
           } : nil];
 }
 
-- (void)POST:(NSString *)URLString parameters:(id)parameters timeoutInterval:(NSTimeInterval)timeout
+- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
 constructingBodyWithBlock:(dataBlock)block success:(successBlock)success failure:(failureBlock)failure {
     if (timeout <= 0 || timeout >= 60) {
         timeout = 60.0f;

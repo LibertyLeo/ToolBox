@@ -37,7 +37,7 @@ typedef void(^completionBlock)(NSData * _Nullable data, NSURLResponse * _Nullabl
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)GET:(NSString *)URLString
- parameters:(nullable id)parameters
+ parameters:(nullable NSDictionary *)parameters
     success:(nullable successBlock)success
     failure:(nullable failureBlock)failure;
 
@@ -51,7 +51,7 @@ typedef void(^completionBlock)(NSData * _Nullable data, NSURLResponse * _Nullabl
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)GET:(NSString *)URLString
- parameters:(nullable id)parameters
+ parameters:(nullable NSDictionary *)parameters
 timeoutInterval:(NSTimeInterval)timeout
     success:(nullable successBlock)success
     failure:(nullable failureBlock)failure;
@@ -67,7 +67,7 @@ timeoutInterval:(NSTimeInterval)timeout
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)GET:(NSString *)URLString
- parameters:(nullable id)parameters
+ parameters:(nullable NSDictionary *)parameters
 timeoutInterval:(NSTimeInterval)timeout
    progress:(nullable downloadBlock)downloadProgress
     success:(nullable successBlock)success
@@ -83,7 +83,7 @@ timeoutInterval:(NSTimeInterval)timeout
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)POST:(NSString *)URLString
- parameters:(nullable id)parameters
+ parameters:(nullable NSDictionary *)parameters
     success:(nullable successBlock)success
     failure:(nullable failureBlock)failure;
 
@@ -97,7 +97,7 @@ timeoutInterval:(NSTimeInterval)timeout
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)POST:(NSString *)URLString
- parameters:(nullable id)parameters
+ parameters:(nullable NSDictionary *)parameters
 timeoutInterval:(NSTimeInterval)timeout
     success:(nullable successBlock)success
     failure:(nullable failureBlock)failure;
@@ -113,7 +113,7 @@ timeoutInterval:(NSTimeInterval)timeout
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)POST:(NSString *)URLString
- parameters:(nullable id)parameters
+ parameters:(nullable NSDictionary *)parameters
 timeoutInterval:(NSTimeInterval)timeout
    progress:(nullable uploadBlock)uploadProgress
     success:(nullable successBlock)success
@@ -130,7 +130,7 @@ timeoutInterval:(NSTimeInterval)timeout
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)POST:(NSString *)URLString
-  parameters:(nullable id)parameters
+  parameters:(nullable NSDictionary *)parameters
 timeoutInterval:(NSTimeInterval)timeout
 constructingBodyWithBlock:(nullable dataBlock)block
      success:(nullable successBlock)success
