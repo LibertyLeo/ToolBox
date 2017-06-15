@@ -9,6 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^ __nullable actionHandler)(UIAlertAction *action);
+
 @interface UIViewController (Alert)
 
 /**
@@ -24,37 +26,42 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  配置带取消样式按钮的弹窗, 提醒文本, 取消按钮文字可编辑
- 
+
  @param alertStyle 弹窗样式, 可选择提醒窗或下拉列表
  @param message 提醒文本
  @param cancelTitle 取消按钮标题, 如果缺省, 使用"取消"当作标题
+ @param handler 取消按钮操作
  */
 - (void)showAlert:(UIAlertControllerStyle)alertStyle
           message:(NSString *)message
-      cancelTitle:(nullable NSString *)cancelTitle;
+      cancelTitle:(nullable NSString *)cancelTitle
+    cancelHandler:(actionHandler)handler;
 
 /**
  配置带取消样式按钮的弹窗, 提醒标题、文本, 取消按钮文字可编辑
- 
+
  @param alertStyle 弹窗样式, 可选择提醒窗或下拉列表
  @param title 提醒标题
  @param message 提醒文本
  @param cancelTitle 取消按钮标题, 如果缺省, 使用"取消"当作标题
+ @param handler 取消按钮操作
  */
 - (void)showAlert:(UIAlertControllerStyle)alertStyle
             title:(NSString *)title
           message:(nullable NSString *)message
-      cancelTitle:(nullable NSString *)cancelTitle;
+      cancelTitle:(nullable NSString *)cancelTitle
+    cancelHandler:(actionHandler)handler;
 
 /**
  配置带取消样式按钮的弹窗, 提醒标题、文本, 取消按钮文字可编辑, 附加新操作
- 
+
  @param alertStyle 弹窗样式, 可选择提醒窗或下拉列表
  @param title 提醒标题
  @param message 提醒文本
  @param cancelTitle 取消按钮标题, 如果缺省, 使用"取消"当作标题
  @param actionTitle 新操作按钮标题
- @param handler 新操作
+ @param cancelAction 取消按钮操作
+ @param newAction 新操作
  @param defaultStyle 1为默认样式, 0为红字警示样式(默认提醒窗只能拥有一个取消样式的按钮)
  */
 - (void)showAlert:(UIAlertControllerStyle)alertStyle
@@ -62,7 +69,8 @@ NS_ASSUME_NONNULL_BEGIN
           message:(nullable NSString *)message
       cancelTitle:(nullable NSString *)cancelTitle
    newActionTitle:(NSString *)actionTitle
- newActionHandler:(void (^ __nullable)(UIAlertAction *action))handler
+    cancelHandler:(actionHandler)cancelAction
+ newActionHandler:(actionHandler)newAction
         isDefault:(BOOL)defaultStyle;
 
 @end

@@ -51,21 +51,25 @@
 
 - (void)showAlert:(UIAlertControllerStyle)alertStyle
           message:(NSString *)message
-      cancelTitle:(NSString *)cancelTitle {
+      cancelTitle:(NSString *)cancelTitle
+    cancelHandler:(actionHandler)handler {
     [self showAlert:alertStyle
               title:message
             message:nil
-        cancelTitle:cancelTitle];
+        cancelTitle:cancelTitle
+      cancelHandler:handler];
 }
 
 - (void)showAlert:(UIAlertControllerStyle)alertStyle
             title:(NSString *)title
           message:(NSString *)message
-      cancelTitle:(NSString *)cancelTitle {
+      cancelTitle:(NSString *)cancelTitle
+    cancelHandler:(actionHandler)handler {
     [self showAlert:alertStyle
               title:title
             message:message
         cancelTitle:cancelTitle
+      cancelHandler:handler
      newActionTitle:@""
    newActionHandler:nil
           isDefault:YES];
@@ -75,35 +79,37 @@
             title:(NSString *)title
           message:(NSString *)message
       cancelTitle:(NSString *)cancelTitle
+    cancelHandler:(actionHandler)cancelAction
    newActionTitle:(NSString *)actionTitle
- newActionHandler:(void (^)(UIAlertAction * _Nonnull))handler
+ newActionHandler:(actionHandler)newAction
         isDefault:(BOOL)defaultStyle {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message
                                                             preferredStyle:alertStyle];
-    
+
     //  用于需要在block中使用, 故提前weak
-    UIAlertController * __weak weakAlert = alert;
-    
+    __weak typeof(alert)weakAlert = alert;
+
     //  如果不设置取消按钮的文字, 使用默认值
     UIAlertAction *action = [UIAlertAction actionWithTitle:cancelTitle.length != 0 ? cancelTitle : @"取消"
                                                      style:UIAlertActionStyleCancel
                                                    handler:^(UIAlertAction * _Nonnull action) {
-                                                       [weakAlert dismissViewControllerAnimated:YES completion:nil];
+                                                       __strong typeof(weakAlert)strongAlert = weakAlert;
+                                                       [strongAlert dismissViewControllerAnimated:YES completion:nil];
                                                    }];
-    
+
     [alert addAction:action];
-    
+
     //  新增按钮长度标题文字长度如果不为0, 才进行操作的添加
     if (actionTitle.length != 0) {
         UIAlertActionStyle actionStyle = (defaultStyle ? UIAlertActionStyleDefault : UIAlertActionStyleDestructive);
         UIAlertAction *action = [UIAlertAction actionWithTitle:actionTitle
                                                          style:actionStyle
-                                                       handler:handler];
-        
+                                                       handler:newAction];
+
         [alert addAction:action];
     }
-    
+
     [self presentViewController:alert animated:YES completion:nil];
 }
 
