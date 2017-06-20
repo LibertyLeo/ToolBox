@@ -16,7 +16,7 @@ typedef void(^downloadBlock)(NSProgress *downloadProgress);
 
 typedef void(^uploadBlock)(NSProgress *uploadProgress);
 typedef void(^dataBlock)(id <AFMultipartFormData> formData);
-typedef void(^completionBlock)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError *_Nullable error);
+typedef void(^completionBlock)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error);
 
 /**
  使用AFNetWorking3.0版本进行核心配置, 减少Block中返回的参数, 以及修改各默认超时时长分别为

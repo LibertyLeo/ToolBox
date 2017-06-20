@@ -90,13 +90,13 @@
     //  用于需要在block中使用, 故提前weak
     __weak typeof(alert)weakAlert = alert;
 
-    //  如果不设置取消按钮的文字, 使用默认值
-    UIAlertAction *action = [UIAlertAction actionWithTitle:cancelTitle.length != 0 ? cancelTitle : @"取消"
+    //  如果不设置取消按钮的文字, 使用默认值, 如果定义了操作, 则根据操作执行, 否则仅关闭弹出框
+    UIAlertAction *action = [UIAlertAction actionWithTitle:(cancelTitle.length != 0 ? cancelTitle : @"取消")
                                                      style:UIAlertActionStyleCancel
-                                                   handler:^(UIAlertAction * _Nonnull action) {
-                                                       __strong typeof(weakAlert)strongAlert = weakAlert;
-                                                       [strongAlert dismissViewControllerAnimated:YES completion:nil];
-                                                   }];
+                                                   handler:(cancelAction != nil ? cancelAction : ^(UIAlertAction * _Nonnull action) {
+        __strong typeof(weakAlert)strongAlert = weakAlert;
+        [strongAlert dismissViewControllerAnimated:YES completion:nil];
+    })];
 
     [alert addAction:action];
 

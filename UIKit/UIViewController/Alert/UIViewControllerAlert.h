@@ -59,8 +59,8 @@ typedef void (^ __nullable actionHandler)(UIAlertAction *action);
  @param title 提醒标题
  @param message 提醒文本
  @param cancelTitle 取消按钮标题, 如果缺省, 使用"取消"当作标题
- @param actionTitle 新操作按钮标题
  @param cancelAction 取消按钮操作
+ @param actionTitle 新操作按钮标题
  @param newAction 新操作
  @param defaultStyle 1为默认样式, 0为红字警示样式(默认提醒窗只能拥有一个取消样式的按钮)
  */
@@ -68,8 +68,8 @@ typedef void (^ __nullable actionHandler)(UIAlertAction *action);
             title:(NSString *)title
           message:(nullable NSString *)message
       cancelTitle:(nullable NSString *)cancelTitle
-   newActionTitle:(NSString *)actionTitle
     cancelHandler:(actionHandler)cancelAction
+   newActionTitle:(NSString *)actionTitle
  newActionHandler:(actionHandler)newAction
         isDefault:(BOOL)defaultStyle;
 
