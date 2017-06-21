@@ -141,11 +141,11 @@ constructingBodyWithBlock:(nullable dataBlock)block
  对WebService进行SOAP请求
 
  @param URLString 用于构建URL的接口字符串
- @param envelopeString 根据服务器所需要信息构建的字符串
+ @param mainData 根据服务器所需要信息构建的字符串
  @param completion 完成该请求后的返回值, 包含错误信息
  */
 - (void)POST:(NSString *)URLString
-    envelope:(NSString *)envelopeString
+    envelope:(NSData *)mainData
   completion:(nullable completionBlock)completion;
 
 @end

@@ -134,26 +134,21 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
           } : nil];
 }
 
-- (void)POST:(NSString *)URLString envelope:(NSString *)envelopeString completion:(completionBlock)completion {
-    //  转化拼接信息为NSData类型
-    NSData *envelopData = [envelopeString dataUsingEncoding:NSUTF8StringEncoding];
-    
+- (void)POST:(NSString *)URLString envelope:(NSData *)mainData completion:(completionBlock)completion {
     NSURL *url = [NSURL URLWithString:URLString];
-    
+
     //  建立起接口请求
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    
+
     //  设置请求头请求体
     request.HTTPMethod = @"POST";
-    request.HTTPBody = envelopData;
+    request.HTTPBody = mainData;
     request.timeoutInterval = 15.0f;
     [request setValue:@"application/soap+xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%ld", envelopeString.length] forHTTPHeaderField:@"Content-Length"];
-    
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
-                                                          delegate:nil
-                                                     delegateQueue:nil];
-    
+    [request setValue:[NSString stringWithFormat:@"%ld", mainData.length] forHTTPHeaderField:@"Content-Length"];
+
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+
     //  将完成的操作异步放在多线程中
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
                                                 completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -161,7 +156,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                                                         completion(data, response, error);
                                                     });
                                                 }];
-    
+
     [dataTask resume];
 }
 

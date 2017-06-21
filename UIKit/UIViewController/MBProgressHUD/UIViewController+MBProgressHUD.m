@@ -80,10 +80,10 @@ static const char hudKey;
     
     //  根据传入值进行判断
     if (success) {
-        image = [[UIImage imageNamed:@"Checkmark"]
+        image = [[UIImage imageNamed:@"Success"]
                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     } else {
-        image = [[UIImage imageNamed:@"Error"]
+        image = [[UIImage imageNamed:@"Failure"]
                  imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     }
     
