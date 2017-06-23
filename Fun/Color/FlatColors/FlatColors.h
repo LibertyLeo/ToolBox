@@ -39,7 +39,7 @@
 /** 湿沥青*/
 @property (class, nonatomic, readonly) UIColor *flatWetAsphaltColor;
 
-/** 午夜灰*/
+/** 午夜蓝*/
 @property (class, nonatomic, readonly) UIColor *flatMidnightBlueColor;
 
 /** 向日葵*/

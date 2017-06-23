@@ -8,11 +8,11 @@
 #ifndef Macros_h
 #define Macros_h
 
-/** 获取屏幕宽高*/
+/// 获取屏幕宽高
 #define kScreenHeight           [UIScreen mainScreen].bounds.size.height
 #define kScreenWidth            [UIScreen mainScreen].bounds.size.width
 
-/** 字体、颜色*/
+/// 字体、颜色
 #define kSystemFont(size)       [UIFont systemFontOfSize:size]
 #define kBoldFont(size)         [UIFont boldSystemFontOfSize:size]
 #define kItalicFont(size)       [UIFont italicSystemFontOfSize:size]
@@ -21,14 +21,14 @@
 #define kIOSBlue                kRGBColor(15.0, 126.0, 251.0)   //  iOS的系统蓝
 #define kSeparateLineGray       kRGBColor(200.0, 199.0, 204.0)  //  表视图分界线的默认颜色
 
-/** 判断系统版本*/
+/// 判断系统版本
 #define kSystemVersion          [[[UIDevice currentDevice] systemVersion] floatValue]
 
-/** 字体适配, 可针对某两个屏幕进行特定字号的设定*/
+/// 字体适配, 可针对某两个屏幕进行特定字号的设定
 #define kAutoSystemFont(screenWidth, big, small)    (screenWidth) >= 375? kSystemFont(big): kSystemFont(small)
 #define kAutoBoldFont(screenWidth, big, small)      (screenWidth) >= 375? kBoldFont(big): kBoldFont(small)
 
-/** 调试使用的打印*/
+/// 调试使用的打印
 #ifdef DEBUG
 #define kLog(format,...)    NSLog((@"<%@:%d> %s" format),\
                             [[NSString stringWithUTF8String:__FILE__] lastPathComponent],\
@@ -37,7 +37,7 @@
 #define kLog(...)
 #endif
 
-/** 简单粗暴的消除警告*/
+/// 简单粗暴的消除警告
 #define SuppressPerformSelectorLeakWarning(Stuff) \
 do { \
 _Pragma("clang diagnostic push") \

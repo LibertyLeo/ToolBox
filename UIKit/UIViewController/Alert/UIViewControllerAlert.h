@@ -21,7 +21,7 @@ typedef void (^ __nullable actionHandler)(UIAlertAction *action);
  */
 - (void)showAlertWithTitle:(nullable NSString *)title
                    message:(NSString *)message NS_DEPRECATED_IOS(8_0, 8_0,
-                                                                 "use -showAlert:message:cancelTitle instead."
+                                                                 "use -showAlert:message:cancelTitle:cancelHandler instead."
                                                                  "This method is no longer used.");
 
 /**

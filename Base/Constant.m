@@ -7,9 +7,10 @@
 
 #import "Constant.h"
 
-CGFloat const StatusBarHeight = 20;
-CGFloat const NavigationBarHeight = 64;
-CGFloat const ToolBarHeight = 49;
+CGFloat const StatusBarHeight = 20;            // 状态栏高度
+CGFloat const NavigationBarHeight = 64;        // 导航栏高度
+CGFloat const ToolBarHeight = 49;              // 工具栏高度
+CGFloat const RegularCornerRadius = 5;         // 常规圆角半径
 
 NSString *const CellID = <#NSString#>;
 

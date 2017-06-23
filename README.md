@@ -45,7 +45,7 @@
 	- [几何功能](/UIKit/UIView/Geometry): 对UIView的一些位置、尺寸属性进一步封装，简化设定约束时的API调用。
 - UIViewController:
 	- [进度显示框](/UIKit/UIViewController/MBProgressHUD): 项目中经常使用的提示视图，配合MBProgressHUD基于UIViewController的封装。
-	- [视图控制器监测](/UIKit/UIViewController/Owner): 通过递归视图控制器栈进行当前使用的视图控制器的查找。
+	- [视图控制器监测](/UIKit/UIViewController/Current): 通过递归视图控制器栈进行当前使用的视图控制器的查找。
 	- [警示框](/UIKit/UIViewController/Alert): 针对UIAlertController警醒框进行API的封装，满足至多添加一个新操作的使用。
 - UIWindow:
 	- [窗口监测](/UIKit/UIWindow): 通过监视当前窗口的使用情况，解决弹出单个警醒框后不可再弹出警醒框的问题。
