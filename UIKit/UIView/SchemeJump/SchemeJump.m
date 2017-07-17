@@ -1,11 +1,11 @@
 //
-//  UIView+SchemeJump.m
+//  SchemeJump.m
 //
 //  Created by Leo_Lei on 12/22/16.
 //  Copyright © 2016 LibertyLeo. All rights reserved.
 //
 
-#import "UIView+SchemeJump.h"
+#import "SchemeJump.h"
 
 @implementation UIView (SchemeJump)
 
