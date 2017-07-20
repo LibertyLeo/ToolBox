@@ -17,7 +17,7 @@
  */
 - (instancetype)initDowlonadWithURL:(NSURL *)url fileName:(NSString *)fileName;
 
-/** 开始下载*/
+/// 开始下载
 - (void)downloadBegin;
 
 @end

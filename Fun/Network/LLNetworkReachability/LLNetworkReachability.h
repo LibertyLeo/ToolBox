@@ -7,24 +7,24 @@
 
 #import <Foundation/Foundation.h>
 
-/** 一个关于获取网络状态的类*/
+/// 一个关于获取网络状态的类
 @interface LLNetworkReachability : NSObject
 
-/** 定义常见的网络状态*/
+/// 定义常见的网络状态
 typedef NS_ENUM(NSInteger, LLNetworkReachabilityStatus) {
-    /** 未知网络*/
+    /// 未知网络
     LLNetworkReachabilityStatusUnknown          = -1,
-    /** 未知网络*/
+    /// 网络不可链接
     LLNetworkReachabilityStatusNotReachable     = 0,
-    /** 未知网络*/
+    /// 2G网络
     LLNetworkReachabilityStatusReachableVia2G   = 1,
-    /** 未知网络*/
+    /// 3G网络
     LLNetworkReachabilityStatusReachableVia3G   = 2,
-    /** 未知网络*/
+    /// 4G网络
     LLNetworkReachabilityStatusReachableVia4G   = 3,
-    /** 未知网络*/
+    /// LTE网络, 4G+
     LLNetworkReachabilityStatusReachableViaLTE  = 4,
-    /** 未知网络*/
+    /// WiFi
     LLNetworkReachabilityStatusReaacableViaWiFi = 5
 };
 

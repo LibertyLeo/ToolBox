@@ -10,8 +10,8 @@
 @implementation NSArray (ChineseDescription)
 
 - (NSString *)chineseDescription {
-    //  1.第一种方法, for循环
-    //  打印数组时以"("打头
+    // 1.第一种方法, for循环
+    // 打印数组时以"("打头
     NSMutableString *desc = [NSMutableString stringWithString:@"(\n"];
     
     /*

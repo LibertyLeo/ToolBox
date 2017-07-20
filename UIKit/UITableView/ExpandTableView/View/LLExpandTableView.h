@@ -8,10 +8,10 @@
 #import <UIKit/UIKit.h>
 @class LLSectionModel;
 
-/** 在使用该扩展表视图进行分组显示时，需重写单元格部分，否则默认显示当前行索引*/
+/// 在使用该扩展表视图进行分组显示时，需重写单元格部分，否则默认显示当前行索引
 @interface LLExpandTableView : UITableView<UITableViewDelegate, UITableViewDataSource>
 
-/** 导入封装成指定类型的数据源*/
+/// 导入封装成指定类型的数据源
 @property (nonatomic, copy) NSArray<LLSectionModel *> *sections;
 
 /**

@@ -11,14 +11,14 @@
 @implementation LLNetworkReachability
 
 + (LLNetworkReachabilityStatus)getCurrentNetworkReachabilityStatus {
-    //  获取当前应用对象
+    // 获取当前应用对象
     UIApplication *currentApp = [UIApplication sharedApplication];
     
-    //  获取当前状态栏的可见视图
+    // 获取当前状态栏的可见视图
     NSArray *subViews = [[[currentApp valueForKey:@"statusBar"] valueForKey:@"foregroundView"] subviews];
     
     NSNumber *data = nil;
-    //  从可见视图的数组中获取到网络视图
+    // 从可见视图的数组中获取到网络视图
     for (id netView in subViews) {
         if ([netView isKindOfClass:[NSClassFromString(@"UIStatusBarDataNetworkItemView") class]]) {
             data = netView;
@@ -26,7 +26,7 @@
         }
     }
     
-    //  返回当前的网络状态
+    // 返回当前的网络状态
     LLNetworkReachabilityStatus currentStatus = LLNetworkReachabilityStatusNotReachable;
     NSNumber *num = [data valueForKey:@"dataNetworkType"];
     currentStatus = [num integerValue];

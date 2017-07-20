@@ -10,38 +10,38 @@
 @interface UIView (Geometry)
 
 #pragma mark - 坐标点
-/** 修改或返回视图起始点坐标, 同时也是视图左上角的坐标点*/
+/// 修改或返回视图起始点坐标, 同时也是视图左上角的坐标点
 @property (nonatomic, assign) CGPoint origin;
 
-/** 返回视图右上角的坐标点*/
+/// 返回视图右上角的坐标点
 @property (nonatomic, assign, readonly) CGPoint topRight;
 
-/** 返回视图左下角的坐标点*/
+/// 返回视图左下角的坐标点
 @property (nonatomic, assign, readonly) CGPoint bottomLeft;
 
-/** 返回视图右下角的坐标点*/
+/// 返回视图右下角的坐标点
 @property (nonatomic, assign, readonly) CGPoint bottomRight;
 
 #pragma mark - 尺寸
-/** 修改或返回视图的尺寸*/
+/// 修改或返回视图的尺寸
 @property (nonatomic, assign) CGSize size;
 
-/** 修改或返回视图的高度*/
+/// 修改或返回视图的高度
 @property (nonatomic, assign) CGFloat height;
 
-/** 修改或返回视图的宽度*/
+/// 修改或返回视图的宽度
 @property (nonatomic, assign) CGFloat width;
 
-/** 修改或返回视图的起始坐标的Y值*/
+/// 修改或返回视图的起始坐标的Y值
 @property (nonatomic, assign) CGFloat top;
 
-/** 修改或返回视图的末尾坐标的Y值*/
+/// 修改或返回视图的末尾坐标的Y值
 @property (nonatomic, assign) CGFloat bottom;
 
-/** 修改或返回视图的起始坐标的X值*/
+/// 修改或返回视图的起始坐标的X值
 @property (nonatomic, assign) CGFloat left;
 
-/** 修改或返回视图的末尾坐标的X值*/
+/// 修改或返回视图的末尾坐标的X值
 @property (nonatomic, assign) CGFloat right;
 
 #pragma mark 常用方法

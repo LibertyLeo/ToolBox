@@ -13,7 +13,7 @@
     NSInteger count = 0;
     for (NSInteger i = 0; i < self.length; ++i) {
         if (isnumber([self characterAtIndex:i])) {
-            //  isnumber提供了判断字符为数字的机制
+            // isnumber提供了判断字符为数字的机制
             count++;
         }
     }
@@ -31,7 +31,7 @@
 }
 
 - (NSInteger)countByRegex {
-    //  根据需要筛选字母、数字选定筛选语句
+    // 根据需要筛选字母、数字选定筛选语句
     NSString *numberRegexStr = @"[0-9]";
     //    NSString *symbolRegexStr = @"[a-zA-Z]";
     

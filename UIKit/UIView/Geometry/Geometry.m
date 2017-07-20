@@ -81,7 +81,7 @@
 
 - (void)setBottom:(CGFloat)newBottom {
     CGRect newFrame = self.frame;
-    //  bottom = origin.y + height
+    // bottom = origin.y + height
     newFrame.origin.y = newBottom - self.frame.size.height;
     self.frame = newFrame;
 }
@@ -102,7 +102,7 @@
 
 - (void)setRight:(CGFloat)newRight {
     CGRect newFrame = self.frame;
-    //  right = origin.x + width
+    // right = origin.x + width
     newFrame.origin.x = newRight - self.frame.size.width;
     self.frame = newFrame;
 }
@@ -130,11 +130,9 @@
     CGFloat scale;
     CGRect newFrame = self.frame;
 
-    /**
-     比较实际高度与预设高度的大小, 如果实际高度大于预设高度, 进行图形的缩放;
-     再比较其宽度, 如果宽度缩放后的视图宽度比预设宽度小, 则最佳的宽度就是高度比较后的尺寸;
-     否则根据宽度与预设宽度的比较, 再次进行缩放。
-     */
+    // 比较实际高度与预设高度的大小, 如果实际高度大于预设高度, 进行图形的缩放
+    // 再比较其宽度, 如果宽度缩放后的视图宽度比预设宽度小, 则最佳的宽度就是高度比较后的尺寸
+    // 否则根据宽度与预设宽度的比较, 再次进行缩放
     if (newFrame.size.height && (newFrame.size.height > aSize.height)) {
         scale = aSize.height / newFrame.size.height;
         newFrame.size.height *= scale;

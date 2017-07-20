@@ -24,7 +24,11 @@
  */
 - (void)setAttributes:(NSDictionary*)dataDic;
 
-/** 设置映射字典*/
+/**
+ 设置映射字典
+
+ @return 映射字典
+ */
 - (NSDictionary*)attributeMapDictionary;
 
 @end

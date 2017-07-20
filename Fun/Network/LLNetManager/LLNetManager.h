@@ -24,7 +24,7 @@ typedef void(^completionBlock)(NSData * _Nullable data, NSURLResponse * _Nullabl
  */
 @interface LLNetManager : NSObject
 
-/** 管理所有发起的网络请求*/
+/// 管理所有发起的网络请求
 + (LLNetManager *)sharedManager;
 
 #pragma mark - GET请求

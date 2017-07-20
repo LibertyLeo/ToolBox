@@ -17,7 +17,7 @@
 @implementation FileDownload
 
 - (NSString *)fileName {
-    //  没有文件名, 默认以链接最后字符为文件名称
+    // 没有文件名, 默认以链接最后字符为文件名称
     if (!_fileName) {
         _fileName = self.fileUrl.path.lastPathComponent.stringByRemovingPercentEncoding;
     }
@@ -40,7 +40,7 @@
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     cachePath = [cachePath stringByAppendingPathComponent:self.fileName];
     
-    //  判断缓存文件下是否存在文件, 如果不存在进行下载工作
+    // 判断缓存文件下是否存在文件, 如果不存在进行下载工作
     if (![[NSFileManager defaultManager] fileExistsAtPath:cachePath]) {
         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                                                               delegate:self
@@ -57,7 +57,7 @@ didFinishDownloadingToURL:(NSURL *)location {
     NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     cachePath = [cachePath stringByAppendingPathComponent:self.fileName];
     NSFileManager *manager = [NSFileManager defaultManager];
-    //  下载文件完毕, 进行文件的移动工作
+    // 下载文件完毕, 进行文件的移动工作
     [manager moveItemAtPath:location.path toPath:cachePath error:nil];
 }
 

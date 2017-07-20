@@ -14,10 +14,10 @@
                   layerFrame:(CGRect)frame
                 gradientfrom:(GradientDirection)direction {
     CAGradientLayer *layer = [CAGradientLayer layer];
-    //  存放渐变颜色数组
+    // 存放渐变颜色数组
     layer.colors = @[(__bridge id)startColor.CGColor, (__bridge id)endColor.CGColor];
 
-    //  起点和终点表示坐标系位置, (0.0, 0.0)表示左上角, (1.0, 1.0)表示右下角
+    // 起点和终点表示坐标系位置, (0.0, 0.0)表示左上角, (1.0, 1.0)表示右下角
     switch (direction) {
         case GradientFromTopToBottom:
             layer.startPoint = CGPointMake(0.0, 0.0);
@@ -59,7 +59,7 @@
                                                         (CFArrayRef)colorData,
                                                         NULL);
 
-    //  设定绘制区域
+    // 设定绘制区域
     CGPoint start = CGPointZero;
     CGPoint end = CGPointZero;
     switch (direction) {
@@ -87,7 +87,7 @@
                                 start, end,
                                 kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    //  释放工作
+    // 释放工作
     CGGradientRelease(gradient);
     CGContextRestoreGState(context);
     CGColorSpaceRelease(colorSpace);

@@ -61,7 +61,7 @@
 + (void)notifyCurrentWindowIsAvailable:(UIWindowLevel)level withBlock:(void (^)())block {
     UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
     if (keyWindow.windowLevel == level) {
-        //  判断当前窗口是否被占用, 如果被占用, 添加观察者进行窗口的占用情况进行监听, 该观察者对象的生命周期由系统管理
+        // 判断当前窗口是否被占用, 如果被占用, 添加观察者进行窗口的占用情况进行监听, 该观察者对象的生命周期由系统管理
         id observer;
         observer = [[NSNotificationCenter defaultCenter] addObserverForName:UIWindowDidBecomeHiddenNotification
                                                                      object:keyWindow
@@ -72,7 +72,7 @@
                                                                      [self notifyCurrentWindowIsAvailable:level withBlock:block];
                                                                  }];
     } else {
-        //  如果当前窗口一旦腾出使用权, 回调block, 进行自定义操作的实现
+        // 如果当前窗口一旦腾出使用权, 回调block, 进行自定义操作的实现
         block();
     }
 }

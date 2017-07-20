@@ -12,20 +12,20 @@
 - (UIImage *)trimIntoRoundedImage {
     UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0);
     
-    //  获取图形上下文
+    // 获取图形上下文
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    //  设置圆形
+    // 设置圆形
     CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
     CGContextAddEllipseInRect(context, rect);
     
-    //  裁剪
+    // 裁剪
     CGContextClip(context);
     
-    //  绘画图形
+    // 绘画图形
     [self drawInRect:rect];
     
-    //  从当前图形上下文获取到图片进行返回
+    // 从当前图形上下文获取到图片进行返回
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;

@@ -15,13 +15,13 @@ typedef void(^expandBlock) (BOOL expand);
  */
 @interface LLSectionHeaderView : UITableViewHeaderFooterView
 
-/** 分组头视图名称*/
+/// 分组头视图名称
 @property (weak, nonatomic) IBOutlet UILabel *sectionTitleLabel;
 
-/** 是否展开数组*/
+/// 是否展开数组
 @property (nonatomic, assign) BOOL expand;
 
-/** 点击分组头视图响应的操作*/
+/// 点击分组头视图响应的操作
 @property (nonatomic, copy) expandBlock touchBlock;
 
 @end
