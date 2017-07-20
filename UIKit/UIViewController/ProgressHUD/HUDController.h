@@ -1,6 +1,7 @@
 //
 //  HUDController.h
 //
+//  Version 1.0.0
 //  Created by Leo_Lei on 7/17/17.
 //  Copyright © 2017 LibertyLeo. All rights reserved.
 //
@@ -25,12 +26,7 @@ typedef NS_ENUM(NSUInteger, HUDMode) {
     Ring
 };
 
-/**
- 该扩展主要用于在视图控制器加载进度指示器。
-
- @author Leo_Lei
- @version 1.0.0
- */
+/// 该扩展主要用于在视图控制器加载进度指示器。
 @interface UIViewController (MBProgressHUD)
 
 /**
