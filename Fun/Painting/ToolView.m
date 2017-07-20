@@ -27,6 +27,22 @@
 
 @implementation ToolView
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        self.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
+    }
+    return self;
+}
+
 - (void)drawRect:(CGRect)rect {
     [self createOptions];
     [self createColorOptions];
@@ -81,7 +97,7 @@
 
 - (void)tapOption:(UIButton *)option {
     // 调整底色作为提醒
-    [self.preOptionButton setBackgroundColor:[UIColor whiteColor]];
+    [self.preOptionButton setBackgroundColor:nil];
     [option setBackgroundColor:[UIColor flatBrightBlueColor]];
 
     self.preOptionButton.selected = NO;

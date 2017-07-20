@@ -132,4 +132,8 @@
     return currentImage;
 }
 
+- (BOOL)pathExist {
+    return _paths.count != 0 ? YES : NO;
+}
+
 @end
