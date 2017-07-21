@@ -1,8 +1,9 @@
 //
 //  LLNetManager.m
 //
-//  Created by Leo_Lei on 12/21/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Version 1.0.0
+//  Created by Leo_Lei on 7/21/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
 #import "LLNetManager.h"
@@ -19,34 +20,45 @@
     return sharedInstance;
 }
 
-- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters
-    success:(successBlock)success failure:(failureBlock)failure {
+- (void)GET:(NSString *)URLString
+ parameters:(NSDictionary *)parameters
+    success:(successBlock)success
+    failure:(failureBlock)failure {
+
     return [self GET:URLString
           parameters:parameters
-     timeoutInterval:10.0f
+             timeout:10.0f
              success:success
              failure:failure];
 }
 
-- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
-    success:(successBlock)success failure:(failureBlock)failure {
+- (void)GET:(NSString *)URLString
+ parameters:(nullable NSDictionary *)parameters
+    timeout:(NSTimeInterval)timeoutInterval
+    success:(nullable successBlock)success
+    failure:(nullable failureBlock)failure {
+
     return [self GET:URLString
           parameters:parameters
-     timeoutInterval:timeout
+             timeout:timeoutInterval
             progress:nil
              success:success
              failure:failure];
 }
 
-- (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
-   progress:(downloadBlock)downloadProgress success:(successBlock)success failure:(failureBlock)failure {
+- (void)GET:(NSString *)URLString
+ parameters:(nullable NSDictionary *)parameters
+    timeout:(NSTimeInterval)timeoutInterval
+   progress:(nullable downloadBlock)downloadProgress
+    success:(nullable successBlock)success
+    failure:(nullable failureBlock)failure {
     // 针对超时进行一个安全设置
-    if (timeout <= 0 || timeout >= 60) {
-        timeout = 60.0f;
+    if (timeoutInterval <= 0 || timeoutInterval >= 60) {
+        timeoutInterval = 60.0f;
     }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer.timeoutInterval = timeout;
+    manager.requestSerializer.timeoutInterval = timeoutInterval;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     [manager GET:URLString
@@ -63,33 +75,44 @@
          } : nil];
 }
 
-- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters
-     success:(successBlock)success failure:(failureBlock)failure {
+- (void)POST:(NSString *)URLString
+  parameters:(NSDictionary *)parameters
+     success:(successBlock)success
+     failure:(failureBlock)failure {
+
     return [self POST:URLString
            parameters:parameters
-      timeoutInterval:15.0f
+              timeout:15.0f
               success:success
               failure:failure];
 }
 
-- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
-     success:(successBlock)success failure:(failureBlock)failure {
+- (void)POST:(NSString *)URLString
+  parameters:(nullable NSDictionary *)parameters
+     timeout:(NSTimeInterval)timeoutInterval
+     success:(nullable successBlock)success
+     failure:(nullable failureBlock)failure {
+
     return [self POST:URLString
            parameters:parameters
-      timeoutInterval:timeout
+              timeout:timeoutInterval
              progress:nil
               success:success
               failure:failure];
 }
 
-- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
-    progress:(uploadBlock)uploadProgress success:(successBlock)success failure:(failureBlock)failure {
-    if (timeout <= 0 || timeout >= 60) {
-        timeout = 60.0f;
+- (void)POST:(NSString *)URLString
+  parameters:(nullable NSDictionary *)parameters
+     timeout:(NSTimeInterval)timeoutInterval
+    progress:(nullable uploadBlock)uploadProgress
+     success:(nullable successBlock)success
+     failure:(nullable failureBlock)failure {
+    if (timeoutInterval <= 0 || timeoutInterval >= 60) {
+        timeoutInterval = 60.0f;
     }
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer.timeoutInterval = timeout;
+    manager.requestSerializer.timeoutInterval = timeoutInterval;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
     [manager POST:URLString
@@ -106,19 +129,24 @@
           } : nil];
 }
 
-- (void)POST:(NSString *)URLString parameters:(NSDictionary *)parameters timeoutInterval:(NSTimeInterval)timeout
-constructingBodyWithBlock:(dataBlock)block success:(successBlock)success failure:(failureBlock)failure {
-    if (timeout <= 0 || timeout >= 60) {
-        timeout = 60.0f;
+- (void)POST:(NSString *)URLString
+  parameters:(nullable NSDictionary *)parameters
+     timeout:(NSTimeInterval)timeoutInterval
+  dataAppend:(nullable dataBlock)dataBlock
+    progress:(nullable uploadBlock)uploadProgress
+     success:(nullable successBlock)success
+     failure:(nullable failureBlock)failure {
+    if (timeoutInterval <= 0 || timeoutInterval >= 60) {
+        timeoutInterval = 60.0f;
     }
-    
+
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer.timeoutInterval = timeout;
+    manager.requestSerializer.timeoutInterval = timeoutInterval;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [manager POST:URLString
        parameters:parameters
 constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-    block(formData);}
+    dataBlock(formData);}
          progress:nil
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               success([self handleSpecialCharactersWithJSONData:responseObject]);
@@ -131,7 +159,9 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
           } : nil];
 }
 
-- (void)POST:(NSString *)URLString envelope:(NSData *)mainData completion:(completionBlock)completion {
+- (void)POST:(NSString *)URLString
+    envelope:(NSData *)relevantData
+  completion:(completionBlock)completion {
     NSURL *url = [NSURL URLWithString:URLString];
 
     // 建立起接口请求
@@ -139,10 +169,12 @@ constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
 
     // 设置请求头请求体
     request.HTTPMethod = @"POST";
-    request.HTTPBody = mainData;
+    request.HTTPBody = relevantData;
     request.timeoutInterval = 15.0f;
-    [request setValue:@"application/soap+xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%ld", mainData.length] forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/soap+xml; charset=utf-8"
+   forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%ld", relevantData.length]
+   forHTTPHeaderField:@"Content-Length"];
 
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
 

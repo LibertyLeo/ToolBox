@@ -73,10 +73,10 @@
     CGPoint origin = [touch locationInView:self];
 
     // 创建一条路径
-    self.drawPath = CGPathCreateMutable();
+    _drawPath = CGPathCreateMutable();
 
     // 起点添加到路径上
-    CGPathMoveToPoint(self.drawPath, NULL, origin.x, origin.y);
+    CGPathMoveToPoint(_drawPath, NULL, origin.x, origin.y);
 }
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -85,7 +85,7 @@
     CGPoint current = [touch locationInView:self];
 
     // 将触摸点甜添加到路径中并进行连线
-    CGPathAddLineToPoint(self.drawPath, NULL, current.x, current.y);
+    CGPathAddLineToPoint(_drawPath, NULL, current.x, current.y);
 
     // 将每个点显示在界面上, 进行重绘
     [self setNeedsDisplay];
@@ -99,14 +99,14 @@
 
     // 创建一个Model并添加到数组中
     Path *model = [[Path alloc] init];
-    model.path = self.drawPath;
+    model.path = _drawPath;
     model.lineColor = self.lineColor;
     model.lineWidth = self.lineWidth;
 
     [self.paths addObject:model];
 
     // 释放创建出的绘制路径
-    CGPathRelease(self.drawPath);
+    CGPathRelease(_drawPath);
     // 进一步防止野指针出现
     self.drawPath = nil;
 }
@@ -114,12 +114,12 @@
 #pragma mark - 自定义方法
 - (void)undo {
     // 删除最后一个PathModel
-    [self.paths removeLastObject];
+    [_paths removeLastObject];
     [self setNeedsDisplay];
 }
 
 - (void)reset {
-    [self.paths removeAllObjects];
+    [_paths removeAllObjects];
     [self setNeedsDisplay];
 }
 

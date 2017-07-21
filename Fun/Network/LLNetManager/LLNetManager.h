@@ -1,8 +1,9 @@
 //
 //  LLNetManager.h
 //
-//  Created by Leo_Lei on 12/21/16.
-//  Copyright © 2016 LibertyLeo. All rights reserved.
+//  Version 1.0.0
+//  Created by Leo_Lei on 7/21/17.
+//  Copyright © 2017 LibertyLeo. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -16,7 +17,9 @@ typedef void(^downloadBlock)(NSProgress *downloadProgress);
 
 typedef void(^uploadBlock)(NSProgress *uploadProgress);
 typedef void(^dataBlock)(id <AFMultipartFormData> formData);
-typedef void(^completionBlock)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error);
+typedef void(^completionBlock)(NSData * _Nullable data,
+                               NSURLResponse * _Nullable response,
+                               NSError * _Nullable error);
 
 /**
  使用AFNetWorking3.0版本进行核心配置, 减少Block中返回的参数, 以及修改各默认超时时长分别为
@@ -46,13 +49,13 @@ typedef void(^completionBlock)(NSData * _Nullable data, NSURLResponse * _Nullabl
 
  @param URLString 用于构建URL的接口字符串
  @param parameters 请求所需参数
- @param timeout 请求超时时长, 如果小于等于0或者比大于等于60的值将使用默认时长60秒
+ @param timeoutInterval 请求超时时长, 小于等于0或大于等于60的值将使用默认时长60秒
  @param success 请求成功时回调的block, 主要用于处理后台返回的数据
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)GET:(NSString *)URLString
  parameters:(nullable NSDictionary *)parameters
-timeoutInterval:(NSTimeInterval)timeout
+    timeout:(NSTimeInterval)timeoutInterval
     success:(nullable successBlock)success
     failure:(nullable failureBlock)failure;
 
@@ -61,14 +64,14 @@ timeoutInterval:(NSTimeInterval)timeout
 
  @param URLString 用于构建URL的接口字符串
  @param parameters 请求所需参数
- @param timeout 请求超时时长, 如果小于等于0或者比大于等于60的值将使用默认时长60秒
+ @param timeoutInterval 请求超时时长, 小于等于0或大于等于60的值将使用默认时长60秒
  @param downloadProgress 用于更新下载进度的block, 不会在主队列中回调
  @param success 请求成功时回调的block, 主要用于处理后台返回的数据
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)GET:(NSString *)URLString
  parameters:(nullable NSDictionary *)parameters
-timeoutInterval:(NSTimeInterval)timeout
+    timeout:(NSTimeInterval)timeoutInterval
    progress:(nullable downloadBlock)downloadProgress
     success:(nullable successBlock)success
     failure:(nullable failureBlock)failure;
@@ -83,56 +86,58 @@ timeoutInterval:(NSTimeInterval)timeout
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)POST:(NSString *)URLString
- parameters:(nullable NSDictionary *)parameters
-    success:(nullable successBlock)success
-    failure:(nullable failureBlock)failure;
+  parameters:(nullable NSDictionary *)parameters
+     success:(nullable successBlock)success
+     failure:(nullable failureBlock)failure;
 
 /**
  POST请求, 可自行设置超时时长
  
  @param URLString 用于构建URL的接口字符串
  @param parameters 请求所需参数
- @param timeout 请求超时时长, 如果小于等于0或者比大于等于60的值将使用默认时长60秒
+ @param timeoutInterval 请求超时时长, 小于等于0或大于等于60的值将使用默认时长60秒
  @param success 请求成功时回调的block, 主要用于处理后台返回的数据
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)POST:(NSString *)URLString
- parameters:(nullable NSDictionary *)parameters
-timeoutInterval:(NSTimeInterval)timeout
-    success:(nullable successBlock)success
-    failure:(nullable failureBlock)failure;
+  parameters:(nullable NSDictionary *)parameters
+     timeout:(NSTimeInterval)timeoutInterval
+     success:(nullable successBlock)success
+     failure:(nullable failureBlock)failure;
 
 /**
  POST请求, 可自行设置时长, 包含更新上传进度的block
  
  @param URLString 用于构建URL的接口字符串
  @param parameters 请求所需参数
- @param timeout 请求超时时长, 如果小于等于0或者比大于等于60的值将使用默认时长60秒
+ @param timeoutInterval 请求超时时长, 小于等于0或大于等于60的值将使用默认时长60秒
  @param uploadProgress 用于更新上传进度的block, 不会在主队列中回调
  @param success 请求成功时回调的block, 主要用于处理后台返回的数据
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)POST:(NSString *)URLString
- parameters:(nullable NSDictionary *)parameters
-timeoutInterval:(NSTimeInterval)timeout
-   progress:(nullable uploadBlock)uploadProgress
-    success:(nullable successBlock)success
-    failure:(nullable failureBlock)failure;
+  parameters:(nullable NSDictionary *)parameters
+     timeout:(NSTimeInterval)timeoutInterval
+    progress:(nullable uploadBlock)uploadProgress
+     success:(nullable successBlock)success
+     failure:(nullable failureBlock)failure;
 
 #pragma mark POST上传文件
 /**
  POST上传数据请求, 可自行设置时长, 追加数据到block中
  @param URLString 用于构建URL的接口字符串
  @param parameters 请求所需参数
- @param timeout 请求超时时长, 如果小于等于0或者比大于等于60的值将使用默认时长60秒
- @param block 针对上传数据所做的操作, 例如拼接上传数据所在的路径以及文件名
+ @param timeoutInterval 请求超时时长, 小于等于0或大于等于60的值将使用默认时长60秒
+ @param dataBlock 针对上传数据所做的操作, 例如拼接上传数据所在的路径以及文件名
+ @param uploadProgress 用于更新上传进度的block, 不会在主队列中回调
  @param success 请求成功时回调的block, 主要用于处理后台返回的数据
  @param failure 请求失败时回调的block, 主要用于返回错误信息
  */
 - (void)POST:(NSString *)URLString
   parameters:(nullable NSDictionary *)parameters
-timeoutInterval:(NSTimeInterval)timeout
-constructingBodyWithBlock:(nullable dataBlock)block
+     timeout:(NSTimeInterval)timeoutInterval
+  dataAppend:(nullable dataBlock)dataBlock
+    progress:(nullable uploadBlock)uploadProgress
      success:(nullable successBlock)success
      failure:(nullable failureBlock)failure;
 
@@ -141,11 +146,11 @@ constructingBodyWithBlock:(nullable dataBlock)block
  对WebService进行SOAP请求
 
  @param URLString 用于构建URL的接口字符串
- @param mainData 根据服务器所需要信息构建的字符串
+ @param relevantData 根据服务器所需要信息构建的字符串
  @param completion 完成该请求后的返回值, 包含错误信息
  */
 - (void)POST:(NSString *)URLString
-    envelope:(NSData *)mainData
+    envelope:(NSData *)relevantData
   completion:(nullable completionBlock)completion;
 
 @end
