@@ -140,14 +140,14 @@
 
     // 设定备选颜色
     NSArray *colors = @[
-                        [UIColor flatSilverColor],
+                        [UIColor lightGrayColor],
                         [UIColor blackColor],
                         [UIColor redColor],
                         [UIColor orangeColor],
                         [UIColor yellowColor],
                         [UIColor greenColor],
                         [UIColor cyanColor],
-                        [UIColor flatCuriousBlueColor],
+                        [UIColor blueColor],
                         [UIColor purpleColor]
                         ];
     CGFloat colorWidth = self.bounds.size.width / colors.count;
