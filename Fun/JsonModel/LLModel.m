@@ -7,6 +7,7 @@
 //
 
 #import "LLModel.h"
+#import <objc/runtime.h>
 
 @implementation LLModel
 
@@ -63,6 +64,21 @@
     NSString *setterSelStr = [NSString stringWithFormat:@"set%@%@:", capital,
                               [attributeName substringFromIndex:1]];
     return NSSelectorFromString(setterSelStr);
+}
+
+#pragma mark - 增加调试注释
+- (NSString *)debugDescription {
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    uint count;
+    objc_property_t *properties = class_copyPropertyList([self class], &count);
+    for (NSInteger index = 0; index < count; index++) {
+        objc_property_t property = properties[index];
+        NSString *name = @(property_getName(property));
+        id value = [self valueForKey:name];
+        [dic setObject:value forKey:name];
+    }
+    free(properties);
+    return [NSString stringWithFormat:@"<%@: %p> -- %@", [self class], self, dic];
 }
 
 @end

@@ -112,7 +112,7 @@
     return CGRectGetMaxX(self.frame);
 }
 
-#pragma mark 常用方法
+#pragma mark - 常用方法
 - (void)moveBy:(CGPoint)vector {
     CGPoint newCenter = self.center;
     newCenter.x += vector.x;

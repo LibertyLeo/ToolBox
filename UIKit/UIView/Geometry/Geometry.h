@@ -45,8 +45,7 @@
 /// 修改或返回视图的末尾坐标的X值
 @property (nonatomic, assign) CGFloat right;
 
-#pragma mark 常用方法
-
+#pragma mark - 常用方法
 /**
  根据构建的向量进行视图的位移
 
